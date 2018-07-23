@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Motif Tool</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#aboutTool">About Tool</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#singleQuery">Single Query</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#batchQuery">Batch Query</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white" id="headerTest">
+      <div class="container text-center">
+        <h1>Motif Search Tool</h1>
+        <p class="lead">For Prosite Pattern: {P}1-{PKRHW}2-[VLSWFNQ]3-[ILTYWFN]4-[FIY]5-{PKRH}6</p>
+      </div>
+    </header>
+
+    <section id="aboutTool">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>About Tool</h2>
+            <p class="lead">Amyloid proteins contain short sequences that, in the right conditions or upon mutation, 
+							form beta – sheets which aggregate to form rigid fibrils. These proteins and aggregates are 
+							associated with a wide range of diseases, most notable neurodegenerative diseases such as 
+							Alzheimer’s disease and Parkinson’s disease. This tool uses a pattern motif developed by 
+							researches to search through inputted protein sequences and highlight any areas which meet
+							the criterea specified by the Prosite pattern.</p>
+            <ul>
+              <li>Navigate the webpage using the navigation options provided</li>
+              <li>To search a single protein, use the "Single Query" input form and click submit</li>
+              <li>To search multiple proteins, use the "Batch Query" input form and enter Uniprot Accession codes separated by new lines</li>
+              <li>Loading times will vary, single inputs should search fast but batch queries may take some time to process</li>
+			  <li>The custom regex includes motif overlaps, so all overlaps will be shown in the results</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="singleQuery">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Single Input Motif Search</h2>
+            <p class="lead">Please enter in a valid Uniprot Accesion Code or a FASTA formatted string and click submit. Results will be posed below the input box</p>
+			<p class="lead">If you are unsure what to input, use the load example button or refer to the user manual</p>
+            <form>
+              <div class="form-group">
+                <label for="UnipotAccessCode">Uniprot Accession Code</label>
+                <input type="text" class="form-control" id="UnipotAccessCode" aria-describedby="emailHelp" placeholder="Enter a Uniprot accession code">
+                <small id="emailHelp" class="form-text text-muted">Codes can be found on the UniprotKB</small>
+              </div>
+                <h3 class="display-4">OR</h3>
+                <div class="form-group">
+                  <label for="FASTAinput">FASTA input</label>
+      	          <textarea type="text" name="Text1" cols="100" rows="10" id="FASTAinput" placeholder="Enter FASTA sequence"></textarea>
+                </div>
+              <input type="button" class="btn btn-primary" value="Submit" id="submitButton">
+			  <button type="button" class="btn btn-primary" id="loadAccession">Load Example</button>
+              <!--<button type="submit" class="btn btn-primary" id="submitButton" value="submit">Submit</button>-->
+            </form>
+            <div id="singleQueryResults">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="batchQuery" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Batch Input Motif Search</h2>
+            <p class="lead">To complete a batch query, please enter in a series of Uniprot Accession Codes each separated by a new line</p>
+			<p class="lead">If you are unsure what to input, use the load example button or refer to the user manual</p>
+            <form>
+              <div class="form-group">
+                <label for="batchInputBox">Accession Batch Input</label>
+                <textarea type="text" name="Text1" cols="100" rows="20" id="batchInputBox" placeholder="Enter multiple accession codes"></textarea>
+              </div>
+              <button type="button" class="btn btn-primary" id="submitButton2">Submit</button>
+			  <button type="button" class="btn btn-primary" id="loadExampleButton">Load Example</button>
+            </form>
+            <div id="batchResults">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Connor Bridle 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+    <!-- Additional javascript file Connor Bridle -->
+    <script src="js/script2.js"></script>
+
+  </body>
+
+</html>
